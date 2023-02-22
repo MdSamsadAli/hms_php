@@ -50,6 +50,7 @@ if(isset($_GET['id']))
                                                 <th>Sr.No.</th>
                                                 <th>Customer Name</th>
                                                 <th>Room Name</th>
+                                                <th>Room Photo</th>
                                                 <th style="width:15px">No of kid</th>
                                                 <th style="width:15px">No of Adult</th>
                                                 <th style="width:100px">From Date</th>
@@ -67,6 +68,7 @@ if(isset($_GET['id']))
                                                 <th>Sr.No.</th>
                                                 <th>Customer Name</th>
                                                 <th>Room Name</th>
+                                                <th>Room Photo</th>
                                                 <th style="width:15px">No of kid</th>
                                                 <th style="width:15px">No of Adult</th>
                                                 <th style="width:100px">From Date</th>
@@ -100,6 +102,9 @@ if(isset($_GET['id']))
                                                 <td><?php echo $i;?></td>
                                                 <td><?php echo $row2['name']; ?></td>
                                                 <td><?php echo $row3['roomname']; ?></td>
+                                                <td>
+                                                  <img src="uploadImage/Room/<?=$row3['room_pic']; ?>" alt="" style="width:200px; height:100px;" />
+                                                </td>
                                                 <td><?php echo $row['kidno']; ?></td>
                                                 <td><?php echo $row['adultno']; ?></td>
                                                 <td><?php echo $row['fromdate']; ?></td>

@@ -71,6 +71,17 @@
                                                 <input type="text" class="form-control" id="val-digits" name="color" placeholder="Amenities" required="">
                                             </div>
                                         </div>
+
+                                        <div class="form-group">
+                                            <div class="row">
+                                                <label class="col-sm-3 control-label">Image<span class="text-danger">*</span></label>
+                                                <div class="col-sm-9">
+                                                    <image class="profile-img" src="<?=$room_pic?>" style="height:30%;width:50%;">
+                                                    <input type="hidden" value="<?=$room_pic?>" name="old_image">
+                                                    <input type="file" class="form-control" name="image">
+                                                </div>
+                                            </div>
+                                        </div>
                                         
                                         
                                         <div class="form-group row">

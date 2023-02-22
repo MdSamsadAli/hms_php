@@ -22,8 +22,24 @@ if(isset($_POST["submit"]))
     }else{
       $msg = "Failed to upload image";
     }*/
+
+    $target_dir = "uploadImage/Room/";
+  $image1 = basename($_FILES["image"]["name"]);
+  if($_FILES["image"]["tmp_name"]!=''){
+    $image = $target_dir . basename($_FILES["image"]["name"]);
+   if (move_uploaded_file($_FILES["image"]["tmp_name"], $image)) {
+    
+       @unlink("uploadImage/Room/".$_POST['old_image']);
+    
+    } else {
+        echo "Sorry, there was an error uploading your file." .mysqli_errors($conn);
+    }
+  }
+  else {
+     $image1 =$_POST['old_image'];
+  }
   
-      $q1="UPDATE `tbl_rooms` SET `floorno`='$floorno',`roomname`='$roomname',`peradultprice`='$peradultprice',`perkidprice`='$perkidprice',`color`='$color' WHERE `id`='".$_GET['id']."'";
+      $q1="UPDATE `tbl_rooms` SET `floorno`='$floorno',`roomname`='$roomname',`peradultprice`='$peradultprice',`perkidprice`='$perkidprice',`color`='$color', `room_pic`='$image1' WHERE `id`='".$_GET['id']."'";
     //$q2=$conn->query($q1);
     if ($conn->query($q1) === TRUE) {
       $_SESSION['success']=' Record Successfully Updated';
@@ -122,6 +138,17 @@ $color = $row['color'];
                                             <label class="col-lg-4 col-form-label" for="val-digits">Amenities: <span class="text-danger">*</span></label>
                                             <div class="col-lg-6">
                                                 <input type="text" class="form-control" id="val-username" name="color" value="<?php echo $color; ?>" required="">
+                                            </div>
+                                        </div>
+
+                                        <div class="form-group">
+                                            <div class="row">
+                                                <label class="col-sm-3 control-label">Image</label>
+                                                <div class="col-sm-9">
+                                  <image class="profile-img" src="uploadImage/Room/<?=$room_pic?>" style="height:30%;width:50%;">
+                  <input type="hidden" value="<?=$room_pic?>" name="old_image">
+                          <input type="file" class="form-control" name="image">
+                                                </div>
                                             </div>
                                         </div>
                                         
