@@ -1,0 +1,32 @@
+#show_image_popup {
+    width: 800px !important;
+    border: 1px solid #333 !important;
+    box-sizing: border-box !important;
+    text-align: center;
+    z-index: 999;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background: #e5e5e5;
+    display: none;
+}
+
+#show_image_popup img {
+    width: 700px;
+}
+
+#all-images .active {
+    filter: blur(5px);
+}
+
+.close-btn-area {
+    width: 100%;
+    text-align: right;
+    margin-bottom: 5px;
+
+}
+
+.close-btn-area button {
+    cursor: pointer;
+}

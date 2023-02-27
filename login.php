@@ -1,5 +1,5 @@
 
- <?php session_start();?>
+<?php session_start();?>
  
 <?php include('head.php');?>
 <link rel="stylesheet" href="popup_style.css">

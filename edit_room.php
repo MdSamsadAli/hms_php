@@ -145,9 +145,9 @@ $color = $row['color'];
                                             <div class="row">
                                                 <label class="col-sm-3 control-label">Image</label>
                                                 <div class="col-sm-9">
-                                  <image class="profile-img" src="uploadImage/Room/<?=$room_pic?>" style="height:30%;width:50%;">
-                  <input type="hidden" value="<?=$room_pic?>" name="old_image">
-                          <input type="file" class="form-control" name="image">
+                                                    <image class="profile-img" src="uploadImage/Room/<?=$room_pic?>" style="height:30%;width:50%;">
+                                                    <input type="hidden" value="<?=$room_pic?>" name="old_image">
+                                                    <input type="file" class="form-control" name="image">
                                                 </div>
                                             </div>
                                         </div>

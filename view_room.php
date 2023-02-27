@@ -1,6 +1,7 @@
 <?php require_once('check_login.php');?>
 <?php include('head.php');?>
 <?php include('header.php');?>
+<!-- <link rel="stylesheet" href="popup_img.css"> -->
 <link rel="stylesheet" href="popup_style.css">
 <?php include('sidebar.php');
 
@@ -37,12 +38,41 @@ if(isset($_GET['id']))
             <!-- Container fluid  -->
             <div class="container-fluid">
                 <!-- Start Page Content -->
-                
+                <style>
+                  #show_image_popup {
+                    width: 800px !important;
+                    border: 1px solid #333 !important;
+                    box-sizing: border-box !important;
+                    text-align: center;
+                    z-index: 999;
+                    position: absolute;
+                    top: 50%;
+                    left: 50%;
+                    transform: translate(-50%, -50%);
+                    background: #e5e5e5;
+                    display: none;
+                }
+                #show_image_popup img{
+                  width: 100%;
+                }
+                #all-images .active {
+                    filter: blur(5px);
+                }
+
+                .close-btn-area {
+                    position : absolute;
+                    width: 100%;
+                    text-align: right;
+                    margin-bottom: 5px;
+                }
+                .close-btn-area button {
+                    cursor: pointer;
+                }
+                </style>
                 <!-- /# row -->
                         <div class="card">
                             <div class="card-body">
                                 <h4 class="card-title">Room Details</h4>
-                               
                                 <div class="table-responsive m-t-40">
                                     <table id="example23" class="display nowrap table table-hover table-striped table-bordered" cellspacing="0" width="100%">
                                         <thead>
@@ -85,8 +115,8 @@ if(isset($_GET['id']))
                                                 <td><?php echo $row['peradultprice']; ?></td>
                                                 <td><?php echo $row['perkidprice']; ?></td>
                                                 <td><?php echo $row['color']; ?></td>
-                                                <td>
-                                                  <img src="uploadImage/Room/<?=$row['room_pic']; ?>" alt="" style="width:200px; height:100px;" />
+                                                <td id="all-images">
+                                                    <img class="small-image" src="uploadImage/Room/<?=$row['room_pic']; ?>" alt="" style="width:200px; height:100px;" />
                                                 </td>
                                                 <td>
                                                   <a href="edit_room.php?id=<?=$row['id'];?>" class="btn btn-xs btn-primary"><i class="fa fa-pencil"></i></a>
@@ -102,7 +132,17 @@ if(isset($_GET['id']))
                                 </div>
                             </div>
                         </div>
-               
+                        
+                        <div id="show_image_popup">
+                          <div class="close-btn-area">
+                            <button id="close-btn">X</button> 
+                          </div>
+                          <div id="image-show-area">
+                            <img id="large-image" src="" alt="">
+                          </div>
+                        </div>
+                        <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+	                      <script type="text/javascript" src="jquery.js"></script>
                 <!-- /# row -->
 
                 <!-- End PAge Content -->
@@ -150,4 +190,14 @@ if(isset($_GET['id']))
 
 Array.from(document.querySelectorAll('button[data-for]')).
 forEach(addButtonTrigger);
-    </script>
+
+
+function openModal() {
+  document.getElementById("myModal").style.display = "block";
+}
+
+function closeModal() {
+  document.getElementById("myModal").style.display = "none";
+}
+
+</script>
